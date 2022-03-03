@@ -23,9 +23,7 @@ services:
       - 13306:3306
     volumes:
       - ./mysql/data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: secret
-
+    
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
