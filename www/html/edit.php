@@ -1,5 +1,6 @@
 <?php
-require_once 'functions.php';
+require_once __DIR__ . '/inc/functions.php';
+
 if(empty($_GET['id'])) {
     echo "idを指定してください";
     exit;
@@ -48,7 +49,7 @@ $html_form = <<<EOD
   </p>
   <p>
     <label for="author">著者：</label>
-    <input type="text" name="publish" value="$publish">
+    <input type="text" name="author" value="$author">
   </p>
   <p class="button">
     <input type="hidden" name="id" value="$id">
@@ -56,4 +57,8 @@ $html_form = <<<EOD
   </p>
 </form>
 EOD;
+include __DIR__ . '/inc/header.php';
 echo $html_form;
+?>
+<?php include __DIR__ . '/inc/footer.php';
+?>
