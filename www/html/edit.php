@@ -1,4 +1,10 @@
 <?php
+session_start();
+$token = bin2hex(random_bytes(20));
+$_SESSION['token'] = $token;
+?>
+<?php require_once __DIR__ . '/login_check.php'; ?>
+<?php
 require_once __DIR__ . '/inc/functions.php';
 
 if(empty($_GET['id'])) {
@@ -53,6 +59,7 @@ $html_form = <<<EOD
   </p>
   <p class="button">
     <input type="hidden" name="id" value="$id">
+    <input type="hidden" name="token" value="$token">
     <input type="submit" value="送信する">
   </p>
 </form>

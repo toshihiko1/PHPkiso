@@ -1,3 +1,9 @@
+<?php
+session_start();
+$token = bin2hex(random_bytes(20));
+$_SESSION['token'] = $token;
+?>
+<?php require_once __DIR__ . '/login_check.php'; ?>
 <?php include __DIR__ . '/inc/header.php';
 ?>
 <form action="add.php" method="post">
@@ -18,6 +24,7 @@
     <input type="text" name="author">
   </p>
   <p class='button'>
+    <input type="hidden" name="token" value="<?php echo $token ?>">
     <input type="submit" value="送信する">
   </p>
 </form>
